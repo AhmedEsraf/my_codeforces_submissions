@@ -1,0 +1,1 @@
+{"name":"Local: spam","url":"f:\\Codes\\2_CodeForces_Problems\\in_Python\\spam.py","tests":[{"id":1746464055546,"input":"3\n3 1\n2 1 2\n3 1\n1 1 3\n2 1\n1 4","output":"Tom\nTom\nJerry"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Codes\\2_CodeForces_Problems\\in_Python\\spam.py","group":"local","local":true}

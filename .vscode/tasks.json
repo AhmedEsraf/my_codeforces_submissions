@@ -1,0 +1,334 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run C",
+      "type": "shell",
+      "command": "gcc",
+      "args": ["-o", "${fileBasenameNoExtension}.exe", "${file}"],
+      "group": "build",
+      "problemMatcher": [],
+      "dependsOrder": "sequence",
+      "dependsOn": [],
+      "runOptions": {
+        "runOn": "default"
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Compile and run C",
+      "when": {
+        "pattern": "\\.c$"
+      }
+    },
+    {
+      "label": "Run C with I/O",
+      "type": "shell",
+      "command": ".\\${fileBasenameNoExtension}.exe",
+      "args": ["<", "input.txt", ">", "output.txt"],
+      "dependsOn": ["Run C"],
+      "group": "test",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Run C with input/output redirection",
+      "when": {
+        "pattern": "\\.c$"
+      }
+    },
+    {
+      "label": "Run C++",
+      "type": "shell",
+      "command": "g++",
+      "args": ["-std=c++17", "-o", "${fileBasenameNoExtension}.exe", "${file}"],
+      "group": "build",
+      "problemMatcher": [],
+      "dependsOrder": "sequence",
+      "dependsOn": [],
+      "runOptions": {
+        "runOn": "default"
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Compile and run C++",
+      "when": {
+        "pattern": "\\.cpp$"
+      }
+    },
+    {
+      "label": "Run C++ with I/O",
+      "type": "shell",
+      "command": ".\\${fileBasenameNoExtension}.exe",
+      "args": ["<", "input.txt", ">", "output.txt"],
+      "dependsOn": ["Run C++"],
+      "group": "test",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Run C++ with input/output redirection",
+      "when": {
+        "pattern": "\\.cpp$"
+      }
+    },
+    {
+      "label": "Run Python",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "${file}",
+        "<",
+        "${fileDirname}\\input.txt",
+        ">",
+        "${fileDirname}\\output.txt"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Run Python with input/output redirection",
+      "when": {
+        "pattern": "\\.py$"
+      }
+    },
+    {
+      "label": "Run Java",
+      "type": "shell",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "javac \"${file}\" && java \"${fileBasenameNoExtension}\" < input.txt > output.txt"
+      ],
+      "group": "build",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Compile and run Java with I/O redirection",
+      "when": {
+        "pattern": "\\.java$"
+      }
+    },
+    {
+      "label": "Run JavaScript",
+      "type": "shell",
+      "command": "node",
+      "args": ["${file}", "<", "${fileDirname}\\input.txt", ">", "${fileDirname}\\output.txt"],
+      "group": "build",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Run JavaScript with input/output redirection",
+      "when": {
+        "pattern": "\\.js$"
+      }
+    },
+    {
+      "label": "Run Go",
+      "type": "shell",
+      "command": "go",
+      "args": ["run", "${file}", "<", "${fileDirname}\\input.txt", ">", "${fileDirname}\\output.txt"],
+      "group": "build",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Run Go with input/output redirection",
+      "when": {
+        "pattern": "\\.go$"
+      }
+    },
+    {
+      "label": "Run Rust",
+      "type": "shell",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "rustc \"${file}\" -o \"${fileBasenameNoExtension}.exe\" && \"${fileBasenameNoExtension}.exe\" < input.txt > output.txt"
+      ],
+      "group": "build",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Compile and run Rust with I/O redirection",
+      "when": {
+        "pattern": "\\.rs$"
+      }
+    }
+  ]
+}
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run C",
+      "type": "shell",
+      "command": "gcc",
+      "args": ["-o", "${fileBasenameNoExtension}.exe", "${file}"],
+      "group": "build",
+      "problemMatcher": [],
+      "dependsOrder": "sequence",
+      "dependsOn": [],
+      "runOptions": {
+        "runOn": "default"
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Compile and run C",
+      "when": {
+        "pattern": "\\.c$"
+      }
+    },
+    {
+      "label": "Run C with I/O",
+      "type": "shell",
+      "command": ".\\${fileBasenameNoExtension}.exe",
+      "args": ["<", "input.txt", ">", "output.txt"],
+      "dependsOn": ["Run C"],
+      "group": "test",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Run C with input/output redirection",
+      "when": {
+        "pattern": "\\.c$"
+      }
+    },
+    {
+      "label": "Run C++",
+      "type": "shell",
+      "command": "g++",
+      "args": ["-std=c++17", "-o", "${fileBasenameNoExtension}.exe", "${file}"],
+      "group": "build",
+      "problemMatcher": [],
+      "dependsOrder": "sequence",
+      "dependsOn": [],
+      "runOptions": {
+        "runOn": "default"
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Compile and run C++",
+      "when": {
+        "pattern": "\\.cpp$"
+      }
+    },
+    {
+      "label": "Run C++ with I/O",
+      "type": "shell",
+      "command": ".\\${fileBasenameNoExtension}.exe",
+      "args": ["<", "input.txt", ">", "output.txt"],
+      "dependsOn": ["Run C++"],
+      "group": "test",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Run C++ with input/output redirection",
+      "when": {
+        "pattern": "\\.cpp$"
+      }
+    },
+    {
+      "label": "Run Python",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "${file}",
+        "<",
+        "${fileDirname}\\input.txt",
+        ">",
+        "${fileDirname}\\output.txt"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Run Python with input/output redirection",
+      "when": {
+        "pattern": "\\.py$"
+      }
+    },
+    {
+      "label": "Run Java",
+      "type": "shell",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "javac \"${file}\" && java \"${fileBasenameNoExtension}\" < input.txt > output.txt"
+      ],
+      "group": "build",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Compile and run Java with I/O redirection",
+      "when": {
+        "pattern": "\\.java$"
+      }
+    },
+    {
+      "label": "Run JavaScript",
+      "type": "shell",
+      "command": "node",
+      "args": ["${file}", "<", "${fileDirname}\\input.txt", ">", "${fileDirname}\\output.txt"],
+      "group": "build",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Run JavaScript with input/output redirection",
+      "when": {
+        "pattern": "\\.js$"
+      }
+    },
+    {
+      "label": "Run Go",
+      "type": "shell",
+      "command": "go",
+      "args": ["run", "${file}", "<", "${fileDirname}\\input.txt", ">", "${fileDirname}\\output.txt"],
+      "group": "build",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Run Go with input/output redirection",
+      "when": {
+        "pattern": "\\.go$"
+      }
+    },
+    {
+      "label": "Run Rust",
+      "type": "shell",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "rustc \"${file}\" -o \"${fileBasenameNoExtension}.exe\" && \"${fileBasenameNoExtension}.exe\" < input.txt > output.txt"
+      ],
+      "group": "build",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Compile and run Rust with I/O redirection",
+      "when": {
+        "pattern": "\\.rs$"
+      }
+    }
+  ]
+}
