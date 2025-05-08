@@ -1,0 +1,1 @@
+{"name":"Local: 1814A_coins","url":"/media/ahmedesraf/Drive/Codes/2_CodeForces_Problems/in_C++/1814A_coins.cpp","tests":[{"id":1746721497947,"input":"4\n5 3\n6 1\n7 4\n8 8","output":"YES\nYES\nNO\nYES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/media/ahmedesraf/Drive/Codes/2_CodeForces_Problems/in_C++/1814A_coins.cpp","group":"local","local":true}

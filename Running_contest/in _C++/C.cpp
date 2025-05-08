@@ -5,32 +5,28 @@ int main() {
     int t;
     cin >> t;
     while (t--) {
-        int n;
-        string s, t;
-        cin >> n >> s >> t;
+        int n, h;
+        cin >> n >> h;
 
-        bool valid = true;
+        float hi_dps = 0;
+        vector<map<float, pair<int, int>>> tools;
 
         for (int i = 0; i < n; i++) {
-            if (s[i] == '0' && t[i] == '1') {
-                valid = false;  // Can't convert 0 to 1
-                break;
-            }
+            int time, dmg;
+            cin >> time >> dmg;
+
+            float dps = (float)dmg / time; // ensure float division
+            hi_dps = max(hi_dps, dps);
+
+            map<float, pair<int, int>> tool;
+            tool[dps] = {time, dmg};
+            tools.push_back(tool);
         }
 
-        if (!valid) {
-            cout << "NO\n";
-            continue;
-        }
-
-        int count1_s = count(s.begin(), s.end(), '1');
-        int count1_t = count(t.begin(), t.end(), '1');
-
-        if ((count1_s - count1_t) % 2 == 0 && count1_s >= count1_t) {
-            cout << "YES\n";
-        } else {
-            cout << "NO\n";
-        }
+        cout << "Highest DPS: " << hi_dps << endl;
+        
     }
+
     return 0;
 }
+

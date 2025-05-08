@@ -9,53 +9,43 @@ int main()
 
     while (t--)
     {
-        int num,k;
-        cin >> num >> k;
+        int num;
+        cin >> num;
         
-        int temp;
+
+        int blue = 0;
+        int red= 0;
+        int unknown = 0;
+
         vector<int> arr;
-        for (int i = 0;i < num;i++) {
+        int temp;
+        for(int i = 0;i < num;i++ ){
             cin >> temp;
             arr.push_back(temp);
+            if (temp == 0) {
+                unknown++;
+            }
+            if (temp == 1){
+                red++;
+            }
+            if (temp == 2) {
+                blue++;
+            }
+        }
+        if (num % 2 == 1) {
+            cout << "No" << endl;
+            continue;
         }
 
-        bool found = false;
-        int turn = 0;
 
-        while(found == false) {
-        sort(arr.begin(),arr.end());
-
-        int big = arr[num-1];
-        if (big == 0) {
-            if (turn % 2 == 1) {
-                cout << "Tom" << endl;
-            }
-            else if(turn % 2 == 0){
-                cout << "Jerry" << endl;
-                
-            }
-            break;
+        if (blue > (num/2) or red > (num / 2)) {
+            cout << "No" << endl;
+        }
+        else {
+            cout <<"Yes" << endl;
         }
 
-        arr[num-1]--;
-        turn++;
-        sort(arr.begin(),arr.end());
 
-        int hi = *max_element(arr.begin(),arr.end());
-        int lo = *min_element(arr.begin(),arr.end());
-        if (hi-lo > k) {
-            if (turn % 2 == 0) {
-                cout << "Tom" << endl;
-                found = true;
-                break;
-            }
-            else if (turn % 2 == 1) {
-                cout << "Jerry" << endl;
-                found = true;
-                break;
-            }
-       }
-    }
     }
     return 0;
 }
