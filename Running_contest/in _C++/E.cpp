@@ -1,46 +1,25 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        int num, max;
-        cin >> num >> max;
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
+    int t; cin >> t;
+    while (t--) {
+        int n; cin >> n;
+        vector<int> arr(n);
+        for (int i = 0; i < n; i++) cin >> arr[i];
 
-        int arr[num];
-        arr[num - 1] = max;
-        int count;
-        if (num == 1 and max == 1)
-        {
-            cout << 0 << endl;
+        int arrays = 1;  // at least 1 array if array not empty
+        for (int i = 0; i < n - 1; i++) {
+            // whenever next element is different, we can start a new array
+            if (arr[i]+1 != arr[i + 1] or arr[i] != arr[i + 1]) {
+                arrays++;
+            }
         }
-        else
-        {
-            if(max >= num and num != 1) {
-                arr[num-1] = num-1;
-            }
-            if (max == 0)
-            {
-                count = 1;
-            }
-            else
-            {
-                count = 0;
-            }
-            for (int i = 0; i < num - 1; i++)
-            {
-                if (count == max)
-                {
-                    count++;
-                }
-                cout << count << " ";
-                count++;
-            }
-            cout << arr[num - 1] << endl;
-        }
+
+        cout << arrays << "\n";
     }
     return 0;
 }

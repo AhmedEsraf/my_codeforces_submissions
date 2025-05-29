@@ -2,31 +2,33 @@
 using namespace std;
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    
     int t;
     cin >> t;
-    while (t--) {
-        int n, h;
-        cin >> n >> h;
+    while(t--) {
+        int num;
+        cin >> num;
 
-        float hi_dps = 0;
-        vector<map<float, pair<int, int>>> tools;
-
-        for (int i = 0; i < n; i++) {
-            int time, dmg;
-            cin >> time >> dmg;
-
-            float dps = (float)dmg / time; // ensure float division
-            hi_dps = max(hi_dps, dps);
-
-            map<float, pair<int, int>> tool;
-            tool[dps] = {time, dmg};
-            tools.push_back(tool);
-        }
-
-        cout << "Highest DPS: " << hi_dps << endl;
+        vector<int> arr(num);
         
+
+        for (int i=0;i < num;i++) cin >> arr[i];
+            
+        for (int i= 0;i < num;i++) {
+            int cur_sum = 0;
+            for (int j=i;j< num;j++) {
+                cur_sum+=arr[j];
+                if (cur_sum % 3 == 0) {
+                    cout << "YES" << endl;
+                    goto new_case;
+                }
+            }
+        }
+        cout << "NO" << endl;
+        new_case:
     }
 
     return 0;
 }
-

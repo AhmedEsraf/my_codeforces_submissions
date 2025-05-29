@@ -1,42 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    
     int t;
     cin >> t;
-    while (t--)
-    {
+    while(t--) {
         int num;
         cin >> num;
-        string str;
-        cin >> str;
-        int count = 0;
 
-        int len = str.size();
-        string arr[len];
-        for (int i = 0; i < len; i++)
-        {
-            string dup = str;
-            arr[i] == dup;
-            if (dup[i] == '1')
-            {
-                dup[i] = '0';
-            }
-            else
-            {
-                dup[i] = '1';
-            }
-            arr[i] = dup;
-            for (int j = 0; j < num; j++)
-            {
-                if (arr[i][j] == '1')
-                {
-                    count++;
-                }
-            }
+        vector<int> hp(num);
+        int maxHP = 0;
+
+        for (int i =0;i< num;i++) {
+            cin >> hp[i];
+            maxHP = max(maxHP,hp[i]);
+        }
+        sort(hp.begin(),hp.end());
+
+        int count = num;
+        for (int i = 0;i < num;i++) {
+            int x = hp[i];
+            int alive = hp.end() - upper_bound(hp.begin(), hp.end(), x);
+            count = min(count,x+alive);
         }
         cout << count << endl;
+
+        
     }
+
     return 0;
 }

@@ -1,23 +1,17 @@
-from collections import Counter
-
 t = int(input())
 for _ in range(t):
-    num = int(input())
-    array = list(map(int,input().split()))
-    
-    unique = set(array)
-    freq = Counter(array)
-    
-    if len(unique) == 1:
-        print("YES")
-    elif len(unique) == 2:
-        not_possible = False
-        for key,count in freq.items():
-            if (count < int(num/2)):
-                not_possible = True;
-        if not_possible == True:
-            print("NO")
-        else:
-            print("YES")
-    else:
-        print("NO")
+    board = []
+    for p in range(8):
+        temp = str(input())
+        board.append(temp)
+    for row in range(8):
+        count = 0
+        ind = 0
+        for col in range(8):
+            if board[row][col] == '#':
+                count+=1
+                ind = col
+        if (count == 1 and row > 0 and row < 7 and ind > 0 and ind < 7):
+            if board[row-1][ind-1] == '#' and board[row-1][ind+1] == '#' and board[row+1][ind-1] == '#' and board[row+1][ind+1] == '#':
+                print(f"{row+1} {ind+1}")
+                break
